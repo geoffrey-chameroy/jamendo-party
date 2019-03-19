@@ -7,6 +7,7 @@ import { NavigationComponent } from './shared/navigation/navigation.component';
 import { TopbarComponent } from './shared/topbar/topbar.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { HomeComponent } from './home/home.component';
+import { PlaylistComponent } from './playlist/playlist.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HomeComponent } from './home/home.component';
     NavigationComponent,
     TopbarComponent,
     PlaylistsComponent,
-    HomeComponent
+    HomeComponent,
+    PlaylistComponent
   ],
   imports: [
     BrowserModule,
