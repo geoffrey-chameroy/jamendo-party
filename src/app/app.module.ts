@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { TopbarComponent } from './shared/topbar/topbar.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     TopbarComponent,
-    PlaylistsComponent
+    PlaylistsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

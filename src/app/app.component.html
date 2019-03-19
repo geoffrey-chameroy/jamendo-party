@@ -1,5 +1,11 @@
-<app-navigation></app-navigation>
+<nav role="navigation" id="skeleton-navigation">
+    <app-navigation></app-navigation>
+</nav>
 <div id="skeleton-topbar-and-content">
-    <app-topbar></app-topbar>
-    <router-outlet></router-outlet>
+    <div id="skeleton-bar-new" class="sticky">
+        <app-topbar></app-topbar>
+    </div>
+    <div id="skeleton-content-wrap">
+        <router-outlet></router-outlet>
+    </div>
 </div>
