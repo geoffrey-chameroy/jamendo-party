@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {PlaylistService} from '../service/playlist.service';
+import {Playlist} from '../entity/playlist';
 
 @Component({
   selector: 'app-playlists',
@@ -6,8 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./playlists.component.less']
 })
 export class PlaylistsComponent implements OnInit {
+  playlists: Playlist[];
 
-  constructor() { }
+  constructor(private playlistService: PlaylistService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.getPlaylists();
+  }
+
+  getPlaylists(): void {
+    this.playlistService.getPlaylistsObserver()
+        .subscribe(playlists => this.playlists = playlists.results);
+  }
 }
