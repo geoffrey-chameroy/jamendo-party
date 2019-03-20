@@ -1,3 +1,5 @@
+import {Track} from './track';
+
 export class Playlist {
     id: string;
     name: string;
@@ -7,4 +9,5 @@ export class Playlist {
     zip: string;
     shorturl: string;
     shareurl: string;
+    tracks: Track[];
 }

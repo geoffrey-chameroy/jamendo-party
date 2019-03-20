@@ -24,9 +24,8 @@
                                 <div class="entity_visual" style="overflow: hidden;">
                                     <div style="left: -15%;">
                                         <picture>
-                                            <source srcset="https://cdn-img.jamendo.com/wallposts/36/636.420_315.jpg?du=1550155942">
-                                            <img class="entity_visual_image" style="width: auto; height: 100%;"
-                                                 src="https://cdn-img.jamendo.com/wallposts/36/636.420_315.jpg?du=1550155942"
+                                            <img *ngIf="playlist.tracks" class="entity_visual_image" style="width: auto; height: 100%;"
+                                                 [src]="playlist.tracks[0].album_image"
                                                  alt="album cover" itemprop="image">
                                         </picture>
                                     </div>
@@ -37,7 +36,7 @@
                                               itemprop="name">{{ playlist.name }}</span>
                                         <br>
                                         <span class="entity_information_secondary">
-                                            <span itemprop="numTracks">15</span> Tracks
+                                            <span *ngIf="playlist.tracks" itemprop="numTracks">{{ playlist.tracks.length }}</span> Tracks
                                         </span>
                                     </div>
                                 </div>
