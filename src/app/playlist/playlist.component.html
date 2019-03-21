@@ -40,7 +40,7 @@
         <div class="pivot-bar">
             <ul class="js-swipe-item-list">
                 <li class="js-swipe-tab is-active">
-                    <a routerLink="/playlist">Playlist</a>
+                    <a [routerLink]="['/playlist/' + playlist.id]">Playlist</a>
                 </li>
             </ul>
         </div>
@@ -57,7 +57,7 @@
                                 <i class="icon icon-play-s"></i>
                                 <i class="icon icon-pause-s"></i>
                             </button>
-                            <a routerLink="/track" class="link-wrap js-trackrow-playlistpage-link">
+                            <a class="link-wrap js-trackrow-playlistpage-link">
                                 <div>
                                     <div class="track_information">
                                         <span class="track_information_title">{{ track.name }}</span>

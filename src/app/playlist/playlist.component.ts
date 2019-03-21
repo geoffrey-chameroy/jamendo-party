@@ -28,8 +28,8 @@ export class PlaylistComponent implements OnInit {
         this.getTracks(playlistId);
     }
 
-    getPlaylist(playlistId: string): Promise<any> {
-        return new Promise(resolve => {
+    getPlaylist(playlistId: string): void {
+        new Promise(resolve => {
             this.playlistService.getPlaylistObserver(playlistId).subscribe(playlist => {
                 this.playlist = playlist;
                 resolve(this.playlist);
@@ -37,8 +37,8 @@ export class PlaylistComponent implements OnInit {
         });
     }
 
-    getTracks(playlistId: string): Promise<any> {
-        return new Promise(resolve => {
+    getTracks(playlistId: string): void {
+        new Promise(resolve => {
             this.trackService.getTracksObserver(playlistId).subscribe(tracks => {
                 this.tracks = tracks;
                 resolve(this.tracks);
