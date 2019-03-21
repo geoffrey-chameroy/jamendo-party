@@ -8,7 +8,7 @@ import {TrackComponent} from './track/track.component';
 const routes: Routes = [
     {path: 'start', component: HomeComponent},
     {path: 'track', component: TrackComponent},
-    {path: 'playlist', component: PlaylistComponent},
+    {path: 'playlist/:id', component: PlaylistComponent},
     {path: 'explore/playlists', component: PlaylistsComponent},
     {path: '**', redirectTo: '/start'}
 ];

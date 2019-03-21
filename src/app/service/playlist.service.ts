@@ -26,4 +26,18 @@ export class PlaylistService {
             })
         );
     }
+
+    getPlaylistObserver(playlistId: string): Observable<Playlist> {
+        const params = '?client_id=' + config.clientId + '&id=' + playlistId;
+        const url = config.apiUrl + 'playlists' + params;
+
+        return this.http.get<any>(url).pipe(
+            map(({results}) => {
+                let playlist = new Playlist();
+                Object.assign(playlist, results[0]);
+
+                return playlist;
+            })
+        );
+    }
 }
