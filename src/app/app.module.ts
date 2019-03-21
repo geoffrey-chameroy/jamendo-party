@@ -9,7 +9,6 @@ import {TopbarComponent} from './shared/topbar/topbar.component';
 import {PlaylistsComponent} from './playlists/playlists.component';
 import {HomeComponent} from './home/home.component';
 import {PlaylistComponent} from './playlist/playlist.component';
-import {TrackComponent} from './track/track.component';
 
 @NgModule({
     declarations: [
@@ -18,8 +17,7 @@ import {TrackComponent} from './track/track.component';
         TopbarComponent,
         PlaylistsComponent,
         HomeComponent,
-        PlaylistComponent,
-        TrackComponent
+        PlaylistComponent
     ],
     imports: [
         BrowserModule,
