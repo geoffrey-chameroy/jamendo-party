@@ -4,6 +4,7 @@ import {Playlist} from '../entity/playlist';
 import {Track} from '../entity/track';
 import {PlaylistService} from '../service/playlist.service';
 import {TrackService} from '../service/track.service';
+import {MusicReaderService} from "../service/music-reader.service";
 
 @Component({
     selector: 'app-playlist',
@@ -17,7 +18,8 @@ export class PlaylistComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private playlistService: PlaylistService,
-        private trackService: TrackService
+        private trackService: TrackService,
+        private musicReaderService: MusicReaderService
     ) {
     }
 
