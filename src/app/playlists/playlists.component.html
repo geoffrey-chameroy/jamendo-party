@@ -20,7 +20,7 @@
                                 <i class="icon icon-play-s"></i>
                                 <i class="icon icon-pause-s"></i>
                             </button>
-                            <a routerLink="/playlist" class="link-wrap">
+                            <a [routerLink]="['/playlist/' + playlist.id]" class="link-wrap">
                                 <div class="entity_visual" style="overflow: hidden;">
                                     <div style="left: -15%;">
                                         <picture>
