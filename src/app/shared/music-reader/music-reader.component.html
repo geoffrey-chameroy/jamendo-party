@@ -1,0 +1,72 @@
+<div *ngIf="track" class="player-wrap">
+    <div id="skeleton-player-mini" class="player-mini is-normal is-visible">
+        <div class="player-mini_track">
+            <div class="player-mini_track_information">
+                <div>
+                    <span class="player-mini_track_information_title js-player-name"><span>{{ track.name }}</span></span>
+                    <span class="player-mini_track_information_text-by">by
+                        <span class="player-mini_track_information_artist js-player-artistId">{{ track.artist_name }}</span>
+                    </span>
+                    <span class="player-mini_track_information_play_source js-player-playSource empty"></span>
+                </div>
+                <div class="player-mini_track_duration">
+                    <div class="hidden-xs">
+                        <span class="js-player-position">{{ time*1000|date:'mm:ss' }}</span> / <span
+                            class="js-player-duration">{{ track.duration*1000|date:'mm:ss' }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="player-mini_track_progress hidden-xs range range--track js-progress-bar">
+                <div class="bar-path"></div>
+                <div class="bar js-player-progress-bar" [ngStyle]="{'width': time / track.duration * 100 + '%'}"></div>
+                <div class="thumb-path">
+                    <div>
+                        <div>
+                            <div class="thumb js-player-progress-thumb" [ngStyle]="{'left': time / track.duration * 100 + '%'}"></div>
+                        </div>
+                    </div>
+                </div>
+                <input (mouseup)="onProgressSlider($event)" class="js-player-progress-slider" type="range" min="0" value="{{ time / track.duration * 100 }}" max="100" step="0.1">
+            </div>
+        </div>
+        <ul class="player-mini_controls player-controls list-button js-player-control is-normal"
+            [ngClass]="{'is-pause': isPause}">
+            <li class="hidden-xs">
+                <button (click)="musicReaderService.onPreviousTrack()" class="player-controls_previous btn-icon btn--overlay js-player-previous"
+                        title="Play the previous track played">
+                    <i class="icon icon-previous"></i>
+                </button>
+            </li>
+            <li>
+                <button (click)="onSwitchPause()" class="player-controls_play btn-icon btn--overlay js-player-play-pause">
+                    <i class="icon icon-pause"></i>
+                    <i class="icon icon-play"></i>
+                </button>
+            </li>
+            <li>
+                <button (click)="musicReaderService.onNextTrack()" class="player-controls_next btn-icon btn--overlay js-player-next"
+                        title="Play the next track in your queue">
+                    <i class="icon icon-next"></i>
+                </button>
+            </li>
+        </ul>
+        <div class="player-mini_volume hidden-xs hidden-sm">
+            <button class="player-mini_volume_call btn-icon btn--overlay js-player-volume" title="Volume">
+                <i class="icon icon-volume"></i>
+            </button>
+            <div class="player-mini_volume_layer js-player-volume-control" style="opacity: 0; display: none;">
+                <div class="player-volume">
+                    <button class="player-volume_mute btn-icon btn--overlay js-player-volume-min"
+                            title="Mute sound">
+                        <i class="icon icon-mute"></i>
+                    </button>
+                    <div class="player-volume_range">
+                        <div class="player-volume_range_track"></div>
+                        <div class="player-volume_range_fill js-player-volume-bar" style="width:100%;"></div>
+                        <input type="range" class="js-player-volume-slider" min="0" value="100" max="100" step="1">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
