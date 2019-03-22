@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Track} from '../entity/track';
 import {BehaviorSubject} from 'rxjs';
+import {CounterApiService} from "./counter-api.service";
 
 @Injectable({
     providedIn: 'root'
@@ -16,7 +17,7 @@ export class MusicReaderService {
     audio = new Audio();
     isPause: boolean = true;
 
-    constructor() {
+    constructor(private counterApiService: CounterApiService) {
     }
 
     onChangeCurrentPlaylist(tracks: Track[]) {
@@ -31,6 +32,7 @@ export class MusicReaderService {
         this.tracks = tracks;
         this.tracks[0].isPlay = true;
         this.track.next(this.tracks[0]);
+        this.counterApiService.postTrack(this.tracks[this.index]);
     }
 
     onChangeTrack(tracks: Track[], track: Track, index: number) {
@@ -47,6 +49,7 @@ export class MusicReaderService {
         this.index = index;
         this.tracks[this.index].isPlay = true;
         this.track.next(this.tracks[this.index]);
+        this.counterApiService.postTrack(this.tracks[this.index]);
     }
 
     onNextTrack() {
@@ -56,6 +59,7 @@ export class MusicReaderService {
         }
         this.tracks[this.index].isPlay = true;
         this.track.next(this.tracks[this.index]);
+        this.counterApiService.postTrack(this.tracks[this.index]);
     }
 
     onPreviousTrack() {
@@ -65,5 +69,6 @@ export class MusicReaderService {
         }
         this.tracks[this.index].isPlay = true;
         this.track.next(this.tracks[this.index]);
+        this.counterApiService.postTrack(this.tracks[this.index]);
     }
 }

@@ -1,4 +1,5 @@
 export const config = {
     apiUrl: 'http://api.jamendo.com/v3.0/',
-    clientId: '' // Your client ID
+    clientId: '', // Your client ID
+    counterApiUrl: 'http://localhost:80/api/'
 };
