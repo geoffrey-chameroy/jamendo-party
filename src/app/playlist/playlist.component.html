@@ -7,7 +7,7 @@
                         <div>
                             <ul class="playlist-cover-grid">
                                 <li *ngFor="let track of tracks|slice:0:4">
-                                    <img [src]="track.album_image" alt="cover">
+                                    <img [src]="track.image" alt="cover">
                                 </li>
                             </ul>
                         </div>
@@ -23,7 +23,10 @@
                     </div>
                     <ul class="btn-action-list">
                         <li>
-                            <button class="btn-action highlight js-play-me" title="Play" data-jam-title-play="Play"
+                            <button (click)="musicReaderService.onChangeCurrentPlaylist(tracks)"
+                                    class="btn-action highlight js-play-me"
+                                    [ngClass]="{'is-toggled': !musicReaderService.isPause}"
+                                    title="Play" data-jam-title-play="Play"
                                     data-jam-title-pause="Pause" itemprop="audio">
                                 <i class="icon icon-play-s"></i>
                                 <i class="icon icon-pause-s"></i>
@@ -50,10 +53,12 @@
             <div class="row">
                 <div class="col-lg-7 col-wide-gap section-no-header js-playlistOverview-tracksList">
                     <ul class="list-track js-tracklist" style="">
-                        <li *ngFor="let track of tracks" class="track js-trackrow-playlistpage ">
-                            <button (click)="musicReaderService.onChangeCurrent(track)" class="track_play btn-pill btn--brand btn--xs js-play-me" title="Play"
+                        <li *ngFor="let track of tracks index as i;" class="track js-trackrow-playlistpage ">
+                            <button (click)="musicReaderService.onChangeTrack(tracks, track, i)"
+                                    class="track_play btn-pill btn--brand btn--xs js-play-me"
+                                    [ngClass]="{'is-toggled': !musicReaderService.isPause && track.isPlay}" title="Play"
                                     data-jam-title-play="Play" data-jam-title-pause="Pause" itemprop="audio">
-                                <img [src]="track.album_image" alt="{{ track.name }}" itemprop="image">
+                                <img [src]="track.image" alt="{{ track.name }}" itemprop="image">
                                 <i class="icon icon-play-s"></i>
                                 <i class="icon icon-pause-s"></i>
                             </button>
@@ -68,15 +73,6 @@
                                     </div>
                                 </div>
                             </a>
-                            <div class="track_actions">
-                                <ul class="list-button">
-                                    <li>
-                                        <button (click)="musicReaderService.onAddToPlaylist(track)" class="btn-icon" title="Add to playlist">
-                                            <i class="icon icon-add-to-playlist"></i>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
                     </ul>
                 </div>

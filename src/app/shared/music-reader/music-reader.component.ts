@@ -9,10 +9,7 @@ import {Track} from '../../entity/track';
 })
 export class MusicReaderComponent implements OnInit {
     private track: Track;
-    private audio = new Audio();
-
     private time: number = 0;
-    private isPause: boolean = true;
 
     constructor(private musicReaderService: MusicReaderService) {
     }
@@ -21,23 +18,23 @@ export class MusicReaderComponent implements OnInit {
         this.musicReaderService.currentTrack.subscribe(currentTrack => {
             this.track = currentTrack;
             if (this.track) {
-                this.audio.src = this.track.audio;
-                this.audio.play();
-                this.isPause = false;
+                this.musicReaderService.audio.src = this.track.audio;
+                this.musicReaderService.audio.play();
+                this.musicReaderService.isPause = false;
 
-                this.audio.ontimeupdate = () => {
-                    this.time = Math.floor(this.audio.currentTime);
+                this.musicReaderService.audio.ontimeupdate = () => {
+                    this.time = Math.floor(this.musicReaderService.audio.currentTime);
                 };
             }
         });
     }
 
     onProgressSlider(event) {
-        this.audio.currentTime = this.audio.duration * event.target.value / 100;
+        this.musicReaderService.audio.currentTime = this.musicReaderService.audio.duration * event.target.value / 100;
     }
 
     onSwitchPause() {
-        this.isPause = !this.isPause;
-        this.isPause ? this.audio.pause() : this.audio.play();
+        this.musicReaderService.isPause = !this.musicReaderService.isPause;
+        this.musicReaderService.isPause ? this.musicReaderService.audio.pause() : this.musicReaderService.audio.play();
     }
 }

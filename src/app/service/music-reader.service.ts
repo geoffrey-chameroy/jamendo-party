@@ -13,31 +13,57 @@ export class MusicReaderService {
 
     private index: number = 0;
 
+    audio = new Audio();
+    isPause: boolean = true;
+
     constructor() {
     }
 
-    onChangeCurrent(track: Track) {
-        this.onAddToPlaylist(track);
-        this.track.next(track);
+    onChangeCurrentPlaylist(tracks: Track[]) {
+        if (!this.isPause) {
+            this.audio.pause();
+            this.isPause = true;
+            return;
+        }
+        if (this.tracks[this.index]) {
+            this.tracks[this.index].isPlay = false;
+        }
+        this.tracks = tracks;
+        this.tracks[0].isPlay = true;
+        this.track.next(this.tracks[0]);
     }
 
-    onAddToPlaylist(track: Track) {
-        this.tracks.push(track);
+    onChangeTrack(tracks: Track[], track: Track, index: number) {
+        if (track.isPlay) {
+            this.audio.pause();
+            this.isPause = true;
+            track.isPlay = false;
+            return;
+        }
+        if (this.tracks[this.index]) {
+            this.tracks[this.index].isPlay = false;
+        }
+        this.tracks = tracks;
+        this.index = index;
+        this.tracks[this.index].isPlay = true;
+        this.track.next(this.tracks[this.index]);
     }
 
     onNextTrack() {
+        this.tracks[this.index].isPlay = false;
         if (this.tracks[++this.index] == undefined) {
-            --this.index;
+            this.index = 0;
         }
-
-        this.onChangeCurrent(this.tracks[this.index]);
+        this.tracks[this.index].isPlay = true;
+        this.track.next(this.tracks[this.index]);
     }
 
     onPreviousTrack() {
+        this.tracks[this.index].isPlay = false;
         if (this.tracks[--this.index] == undefined) {
-            this.index = 0;
+            this.index = this.tracks.length - 1;
         }
-
-        this.onChangeCurrent(this.tracks[this.index]);
+        this.tracks[this.index].isPlay = true;
+        this.track.next(this.tracks[this.index]);
     }
 }
