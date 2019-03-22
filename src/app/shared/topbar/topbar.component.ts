@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CounterApiService} from '../../service/counter-api.service';
 
 @Component({
   selector: 'app-topbar',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private counterApiService: CounterApiService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.counterApiService.setCount();
+  }
 }
