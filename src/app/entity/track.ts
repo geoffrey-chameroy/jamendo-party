@@ -12,4 +12,5 @@ export class Track {
     image: string;
     audio: string;
     audiodownload: string;
+    isPlay: boolean = false;
 }

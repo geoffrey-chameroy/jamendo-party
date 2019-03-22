@@ -30,7 +30,7 @@
             </div>
         </div>
         <ul class="player-mini_controls player-controls list-button js-player-control is-normal"
-            [ngClass]="{'is-pause': isPause}">
+            [ngClass]="{'is-pause': musicReaderService.isPause}">
             <li class="hidden-xs">
                 <button (click)="musicReaderService.onPreviousTrack()" class="player-controls_previous btn-icon btn--overlay js-player-previous"
                         title="Play the previous track played">
