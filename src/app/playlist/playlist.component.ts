@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Playlist} from '../entity/playlist';
-import {Track} from '../entity/track';
 import {PlaylistService} from '../service/playlist.service';
 import {TrackService} from '../service/track.service';
 import {MusicReaderService} from "../service/music-reader.service";
@@ -12,9 +10,6 @@ import {MusicReaderService} from "../service/music-reader.service";
     styleUrls: ['./playlist.component.less']
 })
 export class PlaylistComponent implements OnInit {
-    playlist: Playlist;
-    tracks: Track[];
-
     constructor(
         private route: ActivatedRoute,
         private playlistService: PlaylistService,
@@ -26,25 +21,6 @@ export class PlaylistComponent implements OnInit {
     ngOnInit() {
         const playlistId = this.route.snapshot.paramMap.get('id');
 
-        this.getPlaylist(playlistId);
-        this.getTracks(playlistId);
-    }
-
-    getPlaylist(playlistId: string): void {
-        new Promise(resolve => {
-            this.playlistService.getPlaylistObserver(playlistId).subscribe(playlist => {
-                this.playlist = playlist;
-                resolve(this.playlist);
-            });
-        });
-    }
-
-    getTracks(playlistId: string): void {
-        new Promise(resolve => {
-            this.trackService.getTracksObserver(playlistId).subscribe(tracks => {
-                this.tracks = tracks;
-                resolve(this.tracks);
-            });
-        });
+        this.playlistService.getPlaylist(playlistId);
     }
 }
