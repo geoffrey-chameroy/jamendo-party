@@ -23,11 +23,8 @@
                     <ul class="chosen-choices js-search-form-term"></ul>
                     <div class="search-field">
                         <div class="search-field-placeholder js-form-search-placeholder"></div>
-                        <input type="text" class="js-form-search-input" value=""
+                        <input (keyup)="onSearch($event.target.value)" type="text" class="js-form-search-input" value=""
                                placeholder="{{ 'topbar.search' | translate }}" autocomplete="off" required="required">
-                        <button class="btn-icon js-form-search-reset">
-                            <i class="icon icon-close medium"></i>
-                        </button>
                     </div>
                 </div>
             </div>

@@ -7,10 +7,21 @@ import {Track} from '../entity/track';
 
 @Injectable({providedIn: 'root'})
 export class TrackService {
+    tracks: Track[];
+
     constructor(private http: HttpClient) {
     }
 
-    getTracksObserver(playlistId: string): Observable<Track[]> {
+    getTracks(playlistId: string): Promise<any> {
+        return new Promise(resolve => {
+            this.getTracksObserver(playlistId).subscribe(tracks => {
+                this.tracks = tracks;
+                resolve(this.tracks);
+            });
+        });
+    }
+
+    private getTracksObserver(playlistId: string): Observable<Track[]> {
         const params = '?client_id=' + config.clientId + '&id=' + playlistId + '&order=track_position';
         const url = config.apiUrl + 'playlists/tracks' + params;
 

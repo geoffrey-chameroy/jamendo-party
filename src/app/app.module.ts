@@ -12,6 +12,7 @@ import {PlaylistsComponent} from './playlists/playlists.component';
 import {HomeComponent} from './home/home.component';
 import {PlaylistComponent} from './playlist/playlist.component';
 import {MusicReaderComponent} from './shared/music-reader/music-reader.component';
+import { SearchComponent } from './search/search.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -25,7 +26,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         PlaylistsComponent,
         HomeComponent,
         PlaylistComponent,
-        MusicReaderComponent
+        MusicReaderComponent,
+        SearchComponent
     ],
     imports: [
         BrowserModule,

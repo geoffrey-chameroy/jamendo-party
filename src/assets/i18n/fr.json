@@ -12,5 +12,6 @@
   "playlist.action.pause": "Pause",
   "playlist.action.download": "Téléchargement gratuit",
   "playlist.pivot.playlist": "Playlist",
-  "music_reader.by": "de"
+  "music_reader.by": "de",
+  "search.pivot.search": "Recherche"
 }

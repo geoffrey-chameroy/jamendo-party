@@ -1,4 +1,4 @@
-<div *ngIf="playlist" class="container-fluid">
+<div *ngIf="playlistService.playlist" class="container-fluid">
     <div class="js-pivot-header-incontainer">
         <header class="hero-plain desktop">
             <div class="hero-plain_structure">
@@ -6,7 +6,7 @@
                     <div class="hero-cover">
                         <div>
                             <ul class="playlist-cover-grid">
-                                <li *ngFor="let track of tracks|slice:0:4">
+                                <li *ngFor="let track of playlistService.playlist.tracks|slice:0:4">
                                     <img [src]="track.image" alt="cover">
                                 </li>
                             </ul>
@@ -16,14 +16,14 @@
                 <div class="hero-plain_content">
                     <div class="hero-entity-description">
                         <span class="prefix">{{ 'playlist.sub_title' | translate }}</span><br>
-                        <h1 class="primary">{{ playlist.name }}</h1><br>
+                        <h1 class="primary">{{ playlistService.playlist.name }}</h1><br>
                         <p class="secondary">
                             <span>@<span itemprop="name">Jamendo Music</span></span>
                         </p>
                     </div>
                     <ul class="btn-action-list">
                         <li>
-                            <button (click)="musicReaderService.onChangeCurrentPlaylist(tracks)"
+                            <button (click)="musicReaderService.onChangeCurrentPlaylist(playlistService.playlist.tracks)"
                                     class="btn-action highlight js-play-me"
                                     [ngClass]="{'is-toggled': !musicReaderService.isPause}" itemprop="audio">
                                 <i class="icon icon-play-s"></i>
@@ -31,7 +31,7 @@
                                 <span>{{ 'playlist.action.play' | translate }}</span>
                                 <span>{{ 'playlist.action.pause' | translate }}</span>
                             </button>
-                            <a href="{{ playlist.zip }}" target="_blank" class="btn-action">
+                            <a href="{{ playlistService.playlist.zip }}" target="_blank" class="btn-action">
                                 <i class="icon icon-download"></i>
                                 <span>{{ 'playlist.action.download' | translate }}</span>
                             </a>
@@ -45,7 +45,7 @@
         <div class="pivot-bar">
             <ul class="js-swipe-item-list">
                 <li class="js-swipe-tab is-active">
-                    <a [routerLink]="['/playlist/' + playlist.id]">{{ 'playlist.pivot.playlist' | translate }}</a>
+                    <a [routerLink]="['/playlist/' + playlistService.playlist.id]">{{ 'playlist.pivot.playlist' | translate }}</a>
                 </li>
             </ul>
         </div>
@@ -55,8 +55,8 @@
             <div class="row">
                 <div class="col-lg-7 col-wide-gap section-no-header js-playlistOverview-tracksList">
                     <ul class="list-track js-tracklist" style="">
-                        <li *ngFor="let track of tracks index as i;" class="track js-trackrow-playlistpage ">
-                            <button (click)="musicReaderService.onChangeTrack(tracks, track, i)"
+                        <li *ngFor="let track of playlistService.playlist.tracks index as i;" class="track js-trackrow-playlistpage ">
+                            <button (click)="musicReaderService.onChangeTrack(playlistService.playlist.tracks, track, i)"
                                     class="track_play btn-pill btn--brand btn--xs js-play-me"
                                     [ngClass]="{'is-toggled': !musicReaderService.isPause && track.isPlay}" title="Play"
                                     data-jam-title-play="Play" data-jam-title-pause="Pause" itemprop="audio">
@@ -64,7 +64,7 @@
                                 <i class="icon icon-play-s"></i>
                                 <i class="icon icon-pause-s"></i>
                             </button>
-                            <a (click)="musicReaderService.onChangeTrack(tracks, track, i)"
+                            <a (click)="musicReaderService.onChangeTrack(playlistService.playlist.tracks, track, i)"
                                class="link-wrap js-trackrow-playlistpage-link">
                                 <div>
                                     <div class="track_information">
