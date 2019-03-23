@@ -27,7 +27,7 @@ export class PlaylistService {
                 resolve(this.playlists);
             });
         }).then(() => {
-            for (let playlist of this.playlists) {
+            for (const playlist of this.playlists) {
                 this.trackService.getTracks(playlist.id).then((tracks) => {
                     playlist.tracks = tracks;
                 });
@@ -42,9 +42,9 @@ export class PlaylistService {
 
         return this.http.get<any>(url).pipe(
             map(({results}) => {
-                let playlists: Playlist[] = [];
-                for (let playlistJson of results) {
-                    let playlist = new Playlist();
+                const playlists: Playlist[] = [];
+                for (const playlistJson of results) {
+                    const playlist = new Playlist();
                     Object.assign(playlist, playlistJson);
                     playlists.push(playlist);
                 }
@@ -60,7 +60,7 @@ export class PlaylistService {
 
         return this.http.get<any>(url).pipe(
             map(({results}) => {
-                let playlist = new Playlist();
+                const playlist = new Playlist();
                 Object.assign(playlist, results[0]);
 
                 return playlist;

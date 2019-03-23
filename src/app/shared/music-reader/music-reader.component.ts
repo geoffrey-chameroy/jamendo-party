@@ -9,7 +9,7 @@ import {Track} from '../../entity/track';
 })
 export class MusicReaderComponent implements OnInit {
     private track: Track;
-    private time: number = 0;
+    private time = 0;
 
     constructor(private musicReaderService: MusicReaderService) {
     }

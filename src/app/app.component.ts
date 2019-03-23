@@ -7,7 +7,7 @@ import {TranslateService} from '@ngx-translate/core';
     styleUrls: ['./app.component.less']
 })
 export class AppComponent implements OnInit {
-    private lang: string = 'en';
+    private lang = 'en';
 
     constructor(translate: TranslateService) {
         translate.setDefaultLang(this.lang);

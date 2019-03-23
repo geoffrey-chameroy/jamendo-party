@@ -15,8 +15,8 @@ export class CounterApiService {
     postTrack(track: Track): void {
         const url = config.counterApiUrl + 'tracks';
         const params = {
-            'trackId': track.id,
-            'name': track.name
+            trackId: track.id,
+            name: track.name
         };
 
         this.http.post<any>(url, params)

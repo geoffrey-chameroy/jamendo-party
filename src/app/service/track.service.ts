@@ -27,9 +27,9 @@ export class TrackService {
 
         return this.http.get<any>(url).pipe(
             map(({results}) => {
-                let tracks: Track[] = [];
-                for (let trackJson of results[0].tracks) {
-                    let track = new Track();
+                const tracks: Track[] = [];
+                for (const trackJson of results[0].tracks) {
+                    const track = new Track();
                     Object.assign(track, trackJson);
                     tracks.push(track);
                 }
