@@ -1,0 +1,16 @@
+{
+  "navigation.home": "Home",
+  "navigation.playlists": "Playlists",
+  "topbar.search": "Search a playlist",
+  "topbar.listened": "You listened {{ number }} tracks.",
+  "home.title": "Explorer",
+  "home.tile.playlists": "Playlists",
+  "playlists.pivot.playlists": "Playlists",
+  "playlists.tracks": "{{ number }} Tracks",
+  "playlist.sub_title": "Playlist",
+  "playlist.action.play": "Play",
+  "playlist.action.pause": "Pause",
+  "playlist.action.download": "Free Download",
+  "playlist.pivot.playlist": "Playlist",
+  "music_reader.by": "by"
+}

@@ -24,7 +24,7 @@
                     <div class="search-field">
                         <div class="search-field-placeholder js-form-search-placeholder"></div>
                         <input type="text" class="js-form-search-input" value=""
-                               placeholder="Search with Jamendo Party" autocomplete="off" required="required">
+                               placeholder="{{ 'topbar.search' | translate }}" autocomplete="off" required="required">
                         <button class="btn-icon js-form-search-reset">
                             <i class="icon icon-close medium"></i>
                         </button>
@@ -38,7 +38,9 @@
             <div class="js-is-logged">
                 <div class="avatar-button js-open-menu">
                     <div *ngIf="counterApiService.count"
-                         class="avatar-button_username js-attr-dispname">Music listened : {{ counterApiService.count }}</div>
+                         class="avatar-button_username js-attr-dispname">
+                        {{ 'topbar.listened' | translate:{'number': counterApiService.count} }}
+                    </div>
                 </div>
             </div>
         </div>

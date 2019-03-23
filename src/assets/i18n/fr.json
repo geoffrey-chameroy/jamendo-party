@@ -1,0 +1,16 @@
+{
+  "navigation.home": "Accueil",
+  "navigation.playlists": "Playlists",
+  "topbar.search": "Recherchez une playlist",
+  "topbar.listened": "Vous avez écouté {{ number }} musiques.",
+  "home.title": "Explorer",
+  "home.tile.playlists": "Playlists",
+  "playlists.pivot.playlists": "Playlists",
+  "playlists.tracks": "{{ number }} Musiques",
+  "playlist.sub_title": "Playlist",
+  "playlist.action.play": "Lecture",
+  "playlist.action.pause": "Pause",
+  "playlist.action.download": "Téléchargement gratuit",
+  "playlist.pivot.playlist": "Playlist",
+  "music_reader.by": "de"
+}

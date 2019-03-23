@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-root',
@@ -6,7 +7,12 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./app.component.less']
 })
 export class AppComponent implements OnInit {
-    constructor() { }
+    private lang: string = 'en';
+
+    constructor(translate: TranslateService) {
+        translate.setDefaultLang(this.lang);
+        translate.use(this.lang);
+    }
 
     ngOnInit(): void { }
 }

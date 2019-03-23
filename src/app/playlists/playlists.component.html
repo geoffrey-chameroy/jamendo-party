@@ -3,7 +3,7 @@
         <div class="pivot-bar">
             <ul class="js-swipe-item-list">
                 <li class="js-swipe-tab is-active">
-                    <a routerLink="/explore/playlists">Playlists</a>
+                    <a routerLink="/explore/playlists">{{ 'playlists.pivot.playlists' | translate }}</a>
                 </li>
             </ul>
         </div>
@@ -30,8 +30,8 @@
                                         <span class="entity_information_title"
                                               itemprop="name">{{ playlist.name }}</span>
                                         <br>
-                                        <span class="entity_information_secondary">
-                                            <span *ngIf="playlist.tracks" itemprop="numTracks">{{ playlist.tracks.length }}</span> Tracks
+                                        <span *ngIf="playlist.tracks" class="entity_information_secondary">
+                                            {{ 'playlists.tracks' | translate:{'number': playlist.tracks.length} }}
                                         </span>
                                     </div>
                                 </div>
