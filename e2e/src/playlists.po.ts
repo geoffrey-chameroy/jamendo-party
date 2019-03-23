@@ -18,6 +18,6 @@ export class PlaylistsPage {
   }
 
   clickOnPlaylistLink() {
-    return element(by.css('app-root .row--list-grid li a:first-child')).click();
+    return element(by.css('app-root .row--list-grid li:first-child a')).click();
   }
 }
