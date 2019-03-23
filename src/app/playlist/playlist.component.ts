@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {PlaylistService} from '../service/playlist.service';
 import {TrackService} from '../service/track.service';
-import {MusicReaderService} from "../service/music-reader.service";
+import {MusicReaderService} from '../service/music-reader.service';
 
 @Component({
     selector: 'app-playlist',
