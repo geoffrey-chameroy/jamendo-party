@@ -18,6 +18,7 @@ export class MusicReaderService {
     isPause: boolean = true;
 
     constructor(private counterApiService: CounterApiService) {
+        this.audio.onended = () => this.onNextTrack();
     }
 
     onChangeCurrentPlaylist(tracks: Track[]) {
