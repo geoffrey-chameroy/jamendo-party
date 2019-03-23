@@ -15,7 +15,7 @@
                 </div>
                 <div class="hero-plain_content">
                     <div class="hero-entity-description">
-                        <span class="prefix">Playlist</span><br>
+                        <span class="prefix">{{ 'playlist.sub_title' | translate }}</span><br>
                         <h1 class="primary">{{ playlist.name }}</h1><br>
                         <p class="secondary">
                             <span>@<span itemprop="name">Jamendo Music</span></span>
@@ -25,17 +25,15 @@
                         <li>
                             <button (click)="musicReaderService.onChangeCurrentPlaylist(tracks)"
                                     class="btn-action highlight js-play-me"
-                                    [ngClass]="{'is-toggled': !musicReaderService.isPause}"
-                                    title="Play" data-jam-title-play="Play"
-                                    data-jam-title-pause="Pause" itemprop="audio">
+                                    [ngClass]="{'is-toggled': !musicReaderService.isPause}" itemprop="audio">
                                 <i class="icon icon-play-s"></i>
                                 <i class="icon icon-pause-s"></i>
-                                <span>Play</span>
-                                <span>Pause</span>
+                                <span>{{ 'playlist.action.play' | translate }}</span>
+                                <span>{{ 'playlist.action.pause' | translate }}</span>
                             </button>
-                            <a href="{{ playlist.zip }}" target="_blank" class="btn-action" title="Download">
+                            <a href="{{ playlist.zip }}" target="_blank" class="btn-action">
                                 <i class="icon icon-download"></i>
-                                <span>Free download</span>
+                                <span>{{ 'playlist.action.download' | translate }}</span>
                             </a>
                         </li>
                     </ul>
@@ -47,7 +45,7 @@
         <div class="pivot-bar">
             <ul class="js-swipe-item-list">
                 <li class="js-swipe-tab is-active">
-                    <a [routerLink]="['/playlist/' + playlist.id]">Playlist</a>
+                    <a [routerLink]="['/playlist/' + playlist.id]">{{ 'playlist.pivot.playlist' | translate }}</a>
                 </li>
             </ul>
         </div>
@@ -81,7 +79,7 @@
                             <div class="track_actions">
                                 <ul class="list-button">
                                     <li>
-                                        <a href="{{ track.audiodownload }}" target="_blank" class="btn-icon js-abtesting-trigger-start" title="Download">
+                                        <a href="{{ track.audiodownload }}" target="_blank" class="btn-icon js-abtesting-trigger-start">
                                             <i class="icon icon-download"></i>
                                         </a>
                                     </li>

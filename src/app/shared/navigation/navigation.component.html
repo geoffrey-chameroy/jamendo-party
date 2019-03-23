@@ -6,13 +6,13 @@
             </ul>
             <hr>
             <ul class="primary">
-                <li><a routerLink="/start"><span>Home</span></a></li>
-                <li><a routerLink="/explore/playlists"><span>Playlists</span></a></li>
+                <li><a routerLink="/start"><span>{{ 'navigation.home' | translate }}</span></a></li>
+                <li><a routerLink="/explore/playlists"><span>{{ 'navigation.playlists' | translate }}</span></a></li>
             </ul>
         </div>
         <div>
             <div class="language">
-                <select class="js-navigation-lang">
+                <select (change)="onChangeLang($event.target.value)" class="js-navigation-lang">
                     <option value="en" selected="selected">English</option>
                     <option value="fr">Français</option>
                 </select>
