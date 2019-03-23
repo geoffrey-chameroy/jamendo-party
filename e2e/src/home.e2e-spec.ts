@@ -1,13 +1,13 @@
 import { HomePage } from './home.po';
 
-describe('workspace-project App', () => {
+describe('Home Page', () => {
   let page: HomePage;
 
-  beforeEach(() => {
+  beforeAll(() => {
     page = new HomePage();
   });
 
-  it('should display home page elements', () => {
+  it('should display page\'s elements', () => {
     page.navigateToHomePage();
 
     expect(page.getCurrentUrl()).toEqual('http://localhost:4200/start');
@@ -15,9 +15,10 @@ describe('workspace-project App', () => {
     expect(page.getPlaylistsLink()).toEqual('PLAYLISTS');
   });
 
-  it('should click on playlists link', () => {
+  it('should go on playlists page', () => {
     page.navigateToHomePage();
     page.clickOnPlaylistsLink();
+
     expect(page.getCurrentUrl()).toEqual('http://localhost:4200/explore/playlists');
   });
 });
