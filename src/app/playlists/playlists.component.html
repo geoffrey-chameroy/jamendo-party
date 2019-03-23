@@ -15,14 +15,9 @@
                 <ul class="row row--list-grid section-no-header js-explore-playlists-list" style="display: block;">
                     <li *ngFor="let playlist of playlists" class="col-lg-2 col-sm-3 col-xs-6 col-xl-2 col-xl-force-8-split">
                         <div class="entity">
-                            <button class="play btn-pill btn--brand btn--sm js-play-me" title="Play"
-                                    data-jam-title-play="Play" data-jam-title-pause="Pause" itemprop="audio">
-                                <i class="icon icon-play-s"></i>
-                                <i class="icon icon-pause-s"></i>
-                            </button>
                             <a [routerLink]="['/playlist/' + playlist.id]" class="link-wrap">
                                 <div class="entity_visual" style="overflow: hidden;">
-                                    <div style="left: -15%;">
+                                    <div>
                                         <picture>
                                             <img *ngIf="playlist.tracks" class="entity_visual_image" style="width: auto; height: 100%;"
                                                  [src]="playlist.tracks[0].album_image"
