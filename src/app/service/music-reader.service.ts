@@ -31,8 +31,9 @@ export class MusicReaderService {
             this.tracks[this.index].isPlay = false;
         }
         this.tracks = tracks;
-        this.tracks[0].isPlay = true;
-        this.track.next(this.tracks[0]);
+        this.index = 0;
+        this.tracks[this.index].isPlay = true;
+        this.track.next(this.tracks[this.index]);
         this.counterApiService.postTrack(this.tracks[this.index]);
     }
 
