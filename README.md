@@ -1,15 +1,29 @@
 # Jamendo Party
 
-## Install project
+## Init config
 
-copy `src/config.ts.dist` to `src/config.ts`
-
+```
+cp src/config.ts.dist src/config.ts
+```
 replace `clientId` with your `client_id` delivered by Jamendo
 
-## Execute poject
+## Run with npm (for development)
 
-run `npm install`
+Install and run application
+```
+npm install
+npm start
+```
 
-run `npm start`
+## Build with docker (for production)
 
-go to `http://localhost:4200`
+Install and build application
+```
+docker-compose up -d --build
+```
+
+## Useful links
+
+```
+application : http://localhost:4200
+```
