@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {PlaylistService} from '../service/playlist.service';
-import {TrackService} from '../service/track.service';
 import {MusicReaderService} from '../service/music-reader.service';
 
 @Component({
@@ -12,9 +11,8 @@ import {MusicReaderService} from '../service/music-reader.service';
 export class PlaylistComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
-        private playlistService: PlaylistService,
-        private trackService: TrackService,
-        private musicReaderService: MusicReaderService
+        public playlistService: PlaylistService,
+        public musicReaderService: MusicReaderService
     ) {
     }
 

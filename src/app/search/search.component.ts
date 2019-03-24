@@ -10,7 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 export class SearchComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
-        private playlistService: PlaylistService
+        public playlistService: PlaylistService
     ) {
     }
 

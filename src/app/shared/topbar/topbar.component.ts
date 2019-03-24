@@ -11,8 +11,8 @@ import {PlaylistService} from '../../service/playlist.service';
 export class TopbarComponent implements OnInit {
 
     constructor(
-        private counterApiService: CounterApiService,
         private router: Router,
+        public counterApiService: CounterApiService,
         private playlistService: PlaylistService
     ) {
     }

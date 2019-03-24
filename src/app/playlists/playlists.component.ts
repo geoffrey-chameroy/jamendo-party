@@ -8,7 +8,7 @@ import {PlaylistService} from '../service/playlist.service';
 })
 export class PlaylistsComponent implements OnInit {
     constructor(
-        private playlistService: PlaylistService
+        public playlistService: PlaylistService
     ) {
     }
 
